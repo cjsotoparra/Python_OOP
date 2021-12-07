@@ -15,3 +15,15 @@ class Bankaccount:
 
 	def deposit(self, amount):
 		self.balance = self.balance+amount
+
+class Checking(Bankaccount):
+
+	def __init__(self):
+		Bankaccount.__init__(self)
+		self.fee = 1.99
+
+	def transfer(self, amount):
+		if amount + self.fee > self.balance:
+			print("Not Enough Funds")
+		else:
+			self.balance = self.balance- amount - self.fee
